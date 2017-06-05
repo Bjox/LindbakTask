@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Customer register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>Customer Register</h1>
+
+		<div class="input-group">
+			<form data-bind="submit: addCustomer">
+				<table>
+					<tbody>
+						<tr>
+							<td><input data-bind="value: newFirstName" class="form-control" placeholder="First name" /></td>
+							<td><input data-bind="value: newLastName" class="form-control" placeholder="Last name" /></td>
+							<td><input data-bind="value: newAddress" class="form-control" placeholder="Address" /></td>
+							<td><input data-bind="value: newPostalCode" class="form-control" placeholder="Postal code" /></td>
+							<td><input data-bind="value: newCountry" class="form-control" placeholder="Country" /></td>
+							<td><button class="btn" type="submit">Add customer</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+    </div>
+
+    <br />
+	<br />
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead><tr>
+                <th>First name</th><th>Last name</th><th>Address</th><th>Postal code</th><th>Country</th><th></th>
+            </tr></thead>
+            <tbody data-bind="foreach: customers">
+				<tr>
+					<td data-bind="text: firstName" contenteditable="true"></td>
+					<td data-bind="text: lastName" contenteditable="true"></td>
+					<td data-bind="text: address" contenteditable="true"></td>
+					<td data-bind="text: postalCode" contenteditable="true"></td>
+					<td data-bind="text: country" contenteditable="true"></td>
+					<td><button class="btn-warning" type="button" data-bind="click: $root.removeCustomer">Remove</button></td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+	<script src="Scripts/jquery-3.2.1.min.js"></script>
+	<script src="Scripts/knockout-3.4.2.js"></script>
+	<script src="Scripts/App.js"></script>
+</body>
+</html>
