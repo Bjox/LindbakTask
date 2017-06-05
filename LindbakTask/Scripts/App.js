@@ -14,8 +14,8 @@ function AppViewModel() {
 	self.customers = ko.observableArray();
 
 	self.removeCustomer = function (customer) {
+		self.customers.remove(customer);
 		$.post("/api/CustomerRegister/RemoveCustomer", customer, function (result) {
-			self.customers.remove(customer);
 		})
 	}
 
@@ -36,8 +36,8 @@ function AppViewModel() {
 
 		$.post("/api/CustomerRegister/AddCustomer", newCustomer, function (returnedId) {
 			newCustomer.id = returnedId;
-			self.customers.push(newCustomer);
 		})
+		self.customers.push(newCustomer);
 	}
 
 	fetchCustomers(this);
